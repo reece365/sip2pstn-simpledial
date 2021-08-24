@@ -5,7 +5,7 @@ from flask import render_template
 from flask import url_for
 from flask import request
 
-from twilio.twiml import *
+from twilio.twiml.voice_response import Play, VoiceResponse
 from twilio.rest import Client
 
 import phonenumbers # libphonenumber
@@ -32,7 +32,7 @@ def voice():
     answer_on_bridge = str2bool(request.values.get('answerOnBridge', "True"))
     record_param = request.values.get('record', 'do-not-record')
 
-    response = twiml.Response()
+    response = VoiceResponse()
 
     if to.startswith("sip:"):
         with response.dial(answerOnBridge=answer_on_bridge, record=record_param) as d:
