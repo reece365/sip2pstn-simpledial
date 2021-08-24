@@ -6,7 +6,7 @@ from flask import url_for
 from flask import request
 
 from twilio import twiml
-from twilio.util import TwilioCapability
+from twilio.rest import Client
 
 import phonenumbers # libphonenumber
 # Declare and configure application
